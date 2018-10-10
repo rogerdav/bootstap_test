@@ -13,6 +13,9 @@ import {
     Jumbotron,
     Button
 } from 'reactstrap';
+import Example from './progress';
+import './_app.css';
+import Modal from './modal';
 
 class App extends Component {
     constructor(props) {
@@ -31,7 +34,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Navbar color="inverse" light expand="md">
+                <Navbar color="primary" light expand="md" >
                     <NavbarToggler onClick={this.toggle} />
                     <NavbarBrand href="/">reactstrap</NavbarBrand>
                     <Collapse isOpen={this.state.isOpen} navbar>
@@ -41,6 +44,9 @@ class App extends Component {
                             </NavItem>
                             <NavItem>
                                 <NavLink href="https://github.com/reactstrap/reactstrap">Github</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink href="http://www.google.com">Google</NavLink>
                             </NavItem>
                         </Nav>
                     </Collapse>
@@ -92,6 +98,8 @@ class App extends Component {
                         </Row>
                     </Container>
                 </Jumbotron>
+                <Example this_value="50"/>
+                <Modal buttonLabel="Hit Me"/>
             </div>
         );
     }

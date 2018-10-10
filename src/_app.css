@@ -1,0 +1,11 @@
+nav {
+  margin-top: 10px;
+}
+.nav-item a {
+  font-size: 2em;
+}
+
+#progressBar {
+  width: 80%;
+  
+}
