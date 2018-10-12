@@ -16,6 +16,8 @@ import {
 import Example from './progress';
 import './_app.css';
 import Modal from './modal';
+import List from './list';
+
 
 class App extends Component {
     constructor(props) {
@@ -23,8 +25,10 @@ class App extends Component {
 
         this.toggle = this.toggle.bind(this);
         this.state = {
-            isOpen: false
+            isOpen: false,
+            listItems: [1,2,3,4,5,6,7,8,9,10],
         };
+
     }
     toggle() {
         this.setState({
@@ -98,8 +102,14 @@ class App extends Component {
                         </Row>
                     </Container>
                 </Jumbotron>
-                <Example this_value="50"/>
-                <Modal buttonLabel="Hit Me"/>
+                <Example this_value="75"/>
+                {/* <Modal buttonLabel="Hit Me" my_modal={false}/> */}
+                {this.state.listItems.map( (item, index) => {
+                  return (
+                    <List  key={index} row={item} col={this.state.listItems}>
+                    </List>
+                  )
+                })}
             </div>
         );
     }

@@ -5,7 +5,7 @@ class ModalExample extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: this.props.my_modal || false,
     };
 
     this.toggle = this.toggle.bind(this);
@@ -18,16 +18,22 @@ class ModalExample extends React.Component {
   }
 
   render() {
+    
     return (
       <div>
         <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
           <ModalBody>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <h4>Hello</h4>
+            <h3>You enterer </h3>
+            <h3>Beds</h3>
+            <h3>Baths</h3>
+            <h3>Common Areas</h3>
+            <h3>Stairs</h3>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
+            <Button color="primary" onClick={this.toggle}>Sumbit</Button>{' '}
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
