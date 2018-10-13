@@ -1,6 +1,7 @@
 
 import axios from 'axios';
 import React, { Component } from 'react';
+import {Row, Col, Container} from 'reactstrap';
 
 class MyComponent extends Component {
   constructor(props) {
@@ -39,21 +40,40 @@ class MyComponent extends Component {
       )
   }
 
-  render() {
+//   render() {
     
+//     return (
+//       <div>
+//         {this.state.items.map((item, index) => {
+//           return <div key={index}>{index} {item.title}
+//           </div>
+//         })}
+//       </div>
+    
+//     )
+// }
+render() {
+  // const { error, isLoaded, items } = this.state;
+  if (this.state.error) {
+    return <div>Error: {this.state.error.message}</div>;
+  } else if (!this.state.isLoaded) {
+    return <div>Loading...</div>;
+  } else {
     return (
-      <div>
-        {this.state.items.map((item, index) => {
-          return <div key={index}>{index} {item.title}
-          </div>
-        })}
-      </div>
-    
-    )
+      <Container noGutters>
+        {this.state.items.map(item => (
+          <Row key={item.id} >
+            <Col xs={{size: "auto", offset: 0}} pull-left="true">{item.id}</Col>
+            <Col sm="auto">{item.title}</Col>
+            <Col ></Col>
+          </Row>
+        ))}
+      </Container>
+    );
+  }
 }
 }
 
 export default MyComponent;
-
 
 

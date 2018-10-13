@@ -62,13 +62,13 @@ class App extends Component {
                
                 
                 {/* <Modal buttonLabel="Hit Me" my_modal={false}/> */}
-                {/* {this.state.listItems.map( (item, index) => {
+                {this.state.listItems.map( (item, index) => {
                   return (
                     <List  key={index} row={item} col={this.state.listItems}>
                     </List>
                   )
-                })} */}
-                {/* <Table  info={testArray}/> */}
+                })}
+                <Table  info={testArray}/>
                 <ApiTest />
             </div>
         );
