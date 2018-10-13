@@ -17,6 +17,9 @@ import Example from './progress';
 import './_app.css';
 import Modal from './modal';
 import List from './list';
+import Table from './table';
+import ApiTest from './apicalltest';
+
 
 
 class App extends Component {
@@ -36,11 +39,12 @@ class App extends Component {
         });
     }
     render() {
+      const testArray = [['roger','davenport','@rnd'],['mandy','davenport','@mmd'],['joshua','davenport','@jmd'],['james','peterson','@jsp'],['roger','davenport','@rnd'],['mandy','davenport','@mmd'],['joshua','davenport','@jmd'],['james','peterson','@jsp']];
         return (
             <div>
-                <Navbar color="primary" light expand="md" >
+                <Navbar color="danger" light expand="md" >
+                    <NavbarBrand href="/">Bootstrap Playground</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
-                    <NavbarBrand href="/">reactstrap</NavbarBrand>
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
@@ -55,61 +59,17 @@ class App extends Component {
                         </Nav>
                     </Collapse>
                 </Navbar>
-                <Jumbotron>
-                    <Container>
-                        <Row>
-                            <Col>
-                                <h1>Welcome to React</h1>
-                                <p>
-                                    <Button
-                                        tag="a"
-                                        color="success"
-                                        size="large"
-                                        href="http://reactstrap.github.io"
-                                        target="_blank"
-                                    >
-                                        View Reactstrap Docs
-                                    </Button>
-                                </p>
-                            </Col>
-                            <Col>
-                              <h1>hello World</h1>
-                            </Col>
-                            <Col>
-                              <h1>hello World</h1>
-                            </Col>
-                            <Col>
-                              <h1>hello World</h1>
-                            </Col>
-                            
-                        </Row>
-                        <Row>
-                            <Col>
-                                <h1>Welcome to React</h1>
-                                <p>
-                                    <Button
-                                        tag="a"
-                                        color="success"
-                                        size="large"
-                                        href="http://reactstrap.github.io"
-                                        target="_blank"
-                                    >
-                                        View Reactstrap Docs
-                                    </Button>
-                                </p>
-                            </Col>
-                            
-                        </Row>
-                    </Container>
-                </Jumbotron>
-                <Example this_value="75"/>
+               
+                
                 {/* <Modal buttonLabel="Hit Me" my_modal={false}/> */}
-                {this.state.listItems.map( (item, index) => {
+                {/* {this.state.listItems.map( (item, index) => {
                   return (
                     <List  key={index} row={item} col={this.state.listItems}>
                     </List>
                   )
-                })}
+                })} */}
+                {/* <Table  info={testArray}/> */}
+                <ApiTest />
             </div>
         );
     }
