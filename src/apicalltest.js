@@ -15,12 +15,7 @@ class MyComponent extends Component {
 
   componentDidMount() {
     axios.get("https://jsonplaceholder.typicode.com/posts")
-      .then(res => {
-        
-        console.log('parsed responce', res.data)
-        return res;
-      })
-      .then(
+       .then(
         (result) => {
           this.setState({
             isLoaded: true,
@@ -40,18 +35,7 @@ class MyComponent extends Component {
       )
   }
 
-//   render() {
-    
-//     return (
-//       <div>
-//         {this.state.items.map((item, index) => {
-//           return <div key={index}>{index} {item.title}
-//           </div>
-//         })}
-//       </div>
-    
-//     )
-// }
+
 render() {
   // const { error, isLoaded, items } = this.state;
   if (this.state.error) {

@@ -1,28 +1,28 @@
-import React from 'react';
-import { Table } from 'reactstrap';
-import TableBody from './tableBody';
+import React, { Component }from 'react';
+import { Accordion, AccordionItem } from 'react-light-accordion';
+import 'react-light-accordion/demo/css/index.css';
 import axios from 'axios';
 
-export default class Example extends React.Component {
+class Pokemon extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: null,
+      items: [],
       isLoaded: false,
-      items: []
-    };
+      error: null,
+    }
   }
   componentDidMount() {
-    axios.get("https://jsonplaceholder.typicode.com/photos")
-        // .then( res => {
-        //   console.log('this is the state items',res.data);
-        //   return res;
-        // })
+    axios.get("https://pokeapi.co/api/v2/pokemon/")
+        .then( res => {
+          console.log('this is the state items',res.data.results);
+          return res;
+        })
         .then(
-        (result) => {
+        (response) => {
           this.setState({
             isLoaded: true,
-            items: result.data
+            items: response.data.results
           });
           // console.log('this state data', this.state.items)
         },
@@ -44,23 +44,20 @@ export default class Example extends React.Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <Table  bordered size="med" striped>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Body</th>
-              
-            </tr>
-          </thead>     
-          <TableBody trinfo={this.state.items} />
-        
-        </Table>
+        <Accordion atomic={false}>
+        {this.state.items.map( (item, index) => {
+          return (
+            <AccordionItem title={item.name} key={index}>
+            <h4>{item.url}</h4>
+            </AccordionItem>
+          )
+        })}
+
+        </Accordion>
         
       );
     }
-    
   }
 }
 
+export default Pokemon;

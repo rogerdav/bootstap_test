@@ -19,6 +19,8 @@ import Modal from './modal';
 import List from './list';
 import Table from './table';
 import ApiTest from './apicalltest';
+import Accordion from './accordion';
+import Pokemon from './pokemon';
 
 
 
@@ -40,6 +42,7 @@ class App extends Component {
     }
     render() {
       const testArray = [['roger','davenport','@rnd'],['mandy','davenport','@mmd'],['joshua','davenport','@jmd'],['james','peterson','@jsp'],['roger','davenport','@rnd'],['mandy','davenport','@mmd'],['joshua','davenport','@jmd'],['james','peterson','@jsp']];
+      const headingArray = ["testHeading 1" , "testHeading 2" , "testHeading 3", "testHeading 4", "testHeading 5", " testHeading 6", "testHeading 7", "testHeading 8"];
         return (
             <div>
                 <Navbar color="danger" light expand="md" >
@@ -62,14 +65,17 @@ class App extends Component {
                
                 
                 {/* <Modal buttonLabel="Hit Me" my_modal={false}/> */}
-                {this.state.listItems.map( (item, index) => {
+                {/* {this.state.listItems.map( (item, index) => {
                   return (
                     <List  key={index} row={item} col={this.state.listItems}>
                     </List>
                   )
-                })}
-                <Table  info={testArray}/>
-                <ApiTest />
+                })} */}
+                {/* <Table  info={testArray}/> */}
+                {/* <ApiTest /> */}
+                {/* <Accordion title={headingArray} info={testArray}/> */}
+                <Pokemon />
+
             </div>
         );
     }
